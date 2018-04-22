@@ -1,0 +1,99 @@
+<accordion
+    granite:class="js-cq-IPEPlugin-container"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="granite/ui/components/coral/foundation/accordion"
+    variant="quiet">
+    <items jcr:primaryType="nt:unstructured">
+        <source
+           jcr:primaryType="nt:unstructured"
+           jcr:title="Source"
+           sling:resourceType="granite/ui/components/coral/foundation/container"
+           maximized="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+                <allowupload
+                    granite:class="js-cq-ImageEditor-allowUpload"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                    checked="{Boolean}true"
+                    deleteHint="{Boolean}false"
+                    name="./allowUpload"
+                    text="Allow asset upload from file system"
+                    uncheckedValue="{Boolean}false"
+                    value="{Boolean}true"/>
+            </items>
+           <parentConfig
+               jcr:primaryType="nt:unstructured"
+               active="{Boolean}true"/>
+       </source>
+       <orientation
+               granite:class="js-cq-IPEPlugin-group"
+               jcr:primaryType="nt:unstructured"
+               jcr:title="Orientation"
+               sling:resourceType="granite/ui/components/coral/foundation/container"
+               maximized="{Boolean}true">
+           <items jcr:primaryType="nt:unstructured">
+               <rotate
+                   jcr:primaryType="nt:unstructured"
+                   jcr:title="Rotate"
+                   sling:resourceType="cq/gui/components/authoring/dialog/inplaceediting/configuration/plugin"
+                   features="right"
+                   name="rotate"/>
+               <flip
+                   jcr:primaryType="nt:unstructured"
+                   jcr:title="Flip"
+                   sling:resourceType="cq/gui/components/authoring/dialog/inplaceediting/configuration/plugin"
+                   features="horizontal,vertical"
+                   name="flip"/>
+           </items>
+       </orientation>
+       <crop
+           granite:class="js-cq-IPEPlugin-group"
+           jcr:primaryType="nt:unstructured"
+           jcr:title="Cropping"
+           sling:resourceType="granite/ui/components/coral/foundation/container"
+           maximized="{Boolean}true">
+           <items jcr:primaryType="nt:unstructured">
+               <crop
+                   jcr:primaryType="nt:unstructured"
+                   jcr:title="Allow crop"
+                   sling:resourceType="cq/gui/components/authoring/dialog/inplaceediting/configuration/plugin"
+                   features="*"
+                   name="crop"/>
+                   <configWrapper
+                       jcr:primaryType="nt:unstructured"
+                       sling:resourceType="cq/gui/components/authoring/dialog/inplaceediting/configuration/wrapper"
+                       configPath="./plugins/crop/aspectRatios">
+                       <aspectratios
+                           granite:class="cq-AspectRatio"
+                           jcr:primaryType="nt:unstructured"
+                           sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                           composite="{Boolean}true"
+                           fieldLabel="Aspect ratios">
+                           <field
+                               granite:class="cq-AspectRatio-field"
+                               jcr:primaryType="nt:unstructured"
+                               sling:resourceType="granite/ui/components/coral/foundation/container"
+                               name="./plugins/crop/aspectRatios">
+                               <items jcr:primaryType="nt:unstructured">
+                                   <name
+                                       granite:class="cq-AspectRatio-name"
+                                       jcr:primaryType="nt:unstructured"
+                                       sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                       fieldLabel="Name"
+                                       name="name"/>
+                                   <ratio
+                                       granite:class="cq-AspectRatio-ratio"
+                                       jcr:primaryType="nt:unstructured"
+                                       sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                       fieldLabel="Ratio"
+                                       min="0"
+                                       name="ratio"
+                                       step="0.0001"/>
+                               </items>
+                           </field>
+                       </aspectratios>
+                </configWrapper>
+            </items>
+        </crop>
+    </items>
+</accordion>
